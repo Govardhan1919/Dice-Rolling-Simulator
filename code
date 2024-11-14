@@ -1,0 +1,28 @@
+# Dice Rolling Simulator with Terminal Output
+
+import random
+import tkinter as tk
+from tkinter import messagebox
+import sys
+
+def roll_dice():
+    result = random.randint(1, 6)
+    result_label.config(text=f"Dice Rolled: {result}")
+    print(f"Dice Rolled: {result}", file=sys.stdout)
+
+def quit_program():
+    root.quit()
+
+root = tk.Tk()
+root.title("Dice Rolling Simulator")
+
+result_label = tk.Label(root, text="Roll the Dice!", font=("Helvetica", 24))
+result_label.pack(pady=20)
+
+roll_button = tk.Button(root, text="Roll Dice", command=roll_dice, font=("Helvetica", 18))
+roll_button.pack(pady=10)
+
+quit_button = tk.Button(root, text="Quit", command=quit_program, font=("Helvetica", 18))
+quit_button.pack(pady=10)
+
+root.mainloop()
